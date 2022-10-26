@@ -1,7 +1,7 @@
 namespace bcwGregsListCS.Repositories;
 
 public class BaseRepository {
-  private readonly IDbConnection _db;
+  protected readonly IDbConnection _db;
 
   public BaseRepository(IDbConnection db)
   {

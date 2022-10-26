@@ -48,7 +48,7 @@ public class JobsRepository {
       WHERE id = @id;
     ";
 
-    Job job = _db.QueryFirst<Job>(sql, new { id });
+    Job job = _db.QueryFirstOrDefault<Job>(sql, new { id });
 
     sql = @"
       DELETE FROM jobs

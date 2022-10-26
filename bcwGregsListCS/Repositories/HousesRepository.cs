@@ -46,7 +46,7 @@ public class HousesRepository {
       WHERE id = @id;
     ";
 
-    House house = _db.QueryFirst<House>(sql, new { id });
+    House house = _db.QueryFirstOrDefault<House>(sql, new { id });
 
     sql = @"
       DELETE FROM houses

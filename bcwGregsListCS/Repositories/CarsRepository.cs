@@ -53,7 +53,7 @@ public class CarsRepository
       SELECT * FROM cars WHERE id=@id
     ";
 
-    Car car = _db.QueryFirst<Car>(sql, new { id });
+    Car car = _db.QueryFirstOrDefault<Car>(sql, new { id });
 
     sql = @"
       DELETE FROM cars
