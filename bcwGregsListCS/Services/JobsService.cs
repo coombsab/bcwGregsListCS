@@ -14,8 +14,16 @@ public class JobsService {
     return _jobsRepository.GetJobs();
   }
 
+  public Job GetJobByClassifiedId(int classifiedId) {
+    return _jobsRepository.GetJobByClassifiedId(classifiedId);
+  }
+
   public Job CreateJob(Job jobData) {
     return _jobsRepository.CreateJob(jobData);
+  }
+
+  public Listing CreateJob(Listing listingData) {
+    return _jobsRepository.CreateJob(listingData);
   }
 
   public Job EditJob(Job jobData, int id) {

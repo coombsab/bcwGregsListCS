@@ -13,8 +13,16 @@ public class HousesService {
     return _housesRepository.GetHouses();
   }
 
+  public House GetHouseByClassifiedId(int classifiedId) {
+    return _housesRepository.GetHouseByClassifiedId(classifiedId);
+  }
+
   public House CreateHouse(House houseData) {
     return _housesRepository.CreateHouse(houseData);
+  }
+
+  public Listing CreateHouse(Listing listingData) {
+    return _housesRepository.CreateHouse(listingData);
   }
 
   public House EditHouse(House houseData, int id) {

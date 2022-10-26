@@ -28,7 +28,7 @@ export default {
   props: {
     house: { type: House, required: true },
     seller: { type: SellerProfile, required: true },
-    classifiedId: { type: String }
+    classifiedId: { type: Number }
   },
   setup(props) {
     

@@ -1,11 +1,11 @@
 import { AppState } from "../AppState.js"
 import { Classified } from "../models/Classified.js"
-import { SandboxApi } from "./AxiosService.js"
+import { api } from "./AxiosService.js"
 
 class ClassifiedsService {
 
   async getClassifieds(filter = null) {
-    const res = await SandboxApi.get('api/classifieds', {
+    const res = await api.get('api/classifieds', {
       params: {
         listingType: filter
       }
@@ -36,7 +36,7 @@ class ClassifiedsService {
 
 
   async createClassified(formData) {
-    const res = await SandboxApi.post('/api/classifieds', formData)
+    const res = await api.post('/api/classifieds', formData)
     AppState.classifieds.push(new Classified(res.data))
     // AppState.classifieds = [...AppState.classifieds, new Classified(res.data)]
   }

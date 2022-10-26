@@ -15,15 +15,20 @@ public class CarsRepository
     var sql = "SELECT * FROM cars";
     return _db.Query<Car>(sql).ToList();
   }
+  public Car GetCarByClassifiedId(int classifiedId)
+  {
+    var sql = "SELECT * FROM cars WHERE classifiedId = @classifiedId";
+    return _db.QueryFirstOrDefault<Car>(sql, new { classifiedId });
+  }
 
   public Car CreateCar(Car carData)
   {
     var sql = @"
     INSERT INTO cars(
-      make, model, year, price, description, imgUrl
+      make, model, year, price, description, imgUrl, classifiedId
     )
     VALUES(
-      @Make, @Model, @Year, @Price, @Description, @ImgUrl
+      @Make, @Model, @Year, @Price, @Description, @ImgUrl, @ClassifiedId
     );
     SELECT LAST_INSERT_ID();
     ";
@@ -32,6 +37,24 @@ public class CarsRepository
     return carData;
 
   }
+  public Listing CreateCar(Listing listingData)
+  {
+    var sql = @"
+    INSERT INTO cars(
+      make, model, year, price, description, imgUrl, classifiedId
+    )
+    VALUES(
+      @Make, @Model, @Year, @Price, @Description, @ImgUrl, @ClassifiedId
+    );
+    SELECT LAST_INSERT_ID();
+    ";
+
+    listingData.Id = _db.ExecuteScalar<int>(sql, listingData);
+    return listingData;
+
+  }
+
+
 
   public Car EditCar(Car carData) {
     var sql = @"

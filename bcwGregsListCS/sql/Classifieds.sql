@@ -4,14 +4,19 @@ CREATE TABLE IF NOT EXISTS classifieds (
   id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
   listingType VARCHAR(255) NOT NULL,
   _sellerId VARCHAR(255) NOT NULL,
-  carId int,
-  houseId int,
-  jobId int
-);
+
+  FOREIGN KEY (_sellerId) REFERENCES accounts(id) ON DELETE CASCADE
+) default charset utf8 COMMENT '';
 
 
-INSERT INTO classifieds ()
-VALUES ();
+INSERT INTO classifieds (listingType, _sellerId)
+VALUES ("Car", "633f47dbeb516186a541c5e7");
+
+INSERT INTO classifieds (listingType, _sellerId)
+VALUES ("Job", "633f47dbeb516186a541c5e7");
+
+INSERT INTO classifieds (listingType, _sellerId)
+VALUES ("House", "633f47dbeb516186a541c5e7");
 
 SELECT * FROM classifieds;
 

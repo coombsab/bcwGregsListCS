@@ -26,7 +26,7 @@ export default {
   props: {
     car: { type: Car, required: true },
     seller: { type: SellerProfile, required: true },
-    classifiedId: { type: String }
+    classifiedId: { type: Number }
   },
   setup(props, { emit }) {
 

@@ -9,11 +9,12 @@ CREATE TABLE
         year int NOT NULL CHECK (year >= 1),
         price DECIMAL(10, 2) NOT NULL CHECK (price >= 0),
         description VARCHAR(255),
-        imgUrl VARCHAR(255) DEFAULT "https://www.kwprohouston.com/wp-content/themes/twentyseventeenchild/images/no-propertyfound1.png"
+        imgUrl MEDIUMTEXT,
+        classifiedId int NOT NULL UNIQUE
     );
 
 
-INSERT INTO houses(bedrooms, bathrooms, levels, year, price, description, imgUrl)
-VALUES (1996, 3, 2, 6666, 12312312, "Only accessible via helicopter .", "http://vignette1.wikia.nocookie.net/metalgear/images/8/8e/LD2gtmQ.jpg/revision/latest?cb=20141217041819");
+INSERT INTO houses(bedrooms, bathrooms, levels, year, price, description, imgUrl, classifiedId)
+VALUES (1996, 3, 2, 6666, 12312312, "Only accessible via helicopter .", "http://vignette1.wikia.nocookie.net/metalgear/images/8/8e/LD2gtmQ.jpg/revision/latest?cb=20141217041819", 3);
 
 SELECT * FROM houses;

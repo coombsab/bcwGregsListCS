@@ -7,11 +7,12 @@ CREATE TABLE
         company VARCHAR(255) NOT NULL,
         hours int NOT NULL CHECK (hours >= 1),
         rate DECIMAL(10, 2) NOT NULL CHECK (rate >= 0),
-        description VARCHAR(255)
+        description VARCHAR(255),
+        classifiedId int NOT NULL UNIQUE
     );
 
 
-INSERT INTO jobs(jobTitle, company, hours, rate, description)
-VALUES ("Wine Taster", "St Chappelle", 42, 100, "Drink wine and get paid $$ please neeeeeee");
+INSERT INTO jobs(jobTitle, company, hours, rate, description, classifiedId)
+VALUES ("Wine Taster", "St Chappelle", 42, 100, "Drink wine and get paid $$ please neeeeeee", 2);
 
 SELECT * FROM jobs;

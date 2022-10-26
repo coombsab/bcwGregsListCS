@@ -7,4 +7,5 @@ public class Job {
   public decimal Rate { get; set; }
   public int Hours { get; set; }
   public string Description { get; set; }
+  public int ClassifiedId { get; set; }
 }
